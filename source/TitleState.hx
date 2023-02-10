@@ -408,7 +408,7 @@ class TitleState extends MusicBeatState
 	}
 
 	var transitioning:Bool = false;
-	private static var playJingle:Bool = false;
+	//private static var playJingle:Bool = false;
 	
 	var newTitle:Bool = false;
 	var titleTimer:Float = 0;
