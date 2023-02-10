@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Android Build
+name: Noobkit
 
 # Controls when the action will run. 
 on:
@@ -17,7 +17,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   buildAndroid:
-    name: buildAndroid
+    name: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -81,5 +81,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
-          name: PE Android Build
+          name: PENOOB
           path: export/release/android/bin/app/build/outputs/apk/debug
