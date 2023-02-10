@@ -204,7 +204,24 @@ class TitleState extends MusicBeatState
 		MusicBeatState.switchState(new FreeplayState());
 		#elseif CHARTING
 		MusicBeatState.switchState(new ChartingState());
+		/*#else
+		if(FlxG.save.data.flashing == null && !FlashingState.leftState) {
+			FlxTransitionableState.skipNextTransIn = true;
+			FlxTransitionableState.skipNextTransOut = true;
+			MusicBeatState.switchState(new FlashingState());
+		} else {
+			if (initialized)
+				startIntro();*/
+			else
+			{
+				new FlxTimer().start(1, function(tmr:FlxTimer)
+				{
+					startIntro();
+				});
+			}
+		}
 		#end
+	}
 
 	var logoBl:FlxSprite;
 	var gfDance:FlxSprite;
@@ -219,12 +236,10 @@ class TitleState extends MusicBeatState
 			/*var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
 			diamond.persist = true;
 			diamond.destroyOnNoUse = false;
-
 			FlxTransitionableState.defaultTransIn = new TransitionData(FADE, FlxColor.BLACK, 1, new FlxPoint(0, -1), {asset: diamond, width: 32, height: 32},
 				new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
 			FlxTransitionableState.defaultTransOut = new TransitionData(FADE, FlxColor.BLACK, 0.7, new FlxPoint(0, 1),
 				{asset: diamond, width: 32, height: 32}, new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
-
 			transIn = FlxTransitionableState.defaultTransIn;
 			transOut = FlxTransitionableState.defaultTransOut;*/
 
@@ -408,10 +423,10 @@ class TitleState extends MusicBeatState
 	}
 
 	var transitioning:Bool = false;
-	//private static var playJingle:Bool = false;
+	private static var playJingle:Bool = false;
 	
-	//var newTitle:Bool = false;
-	//var titleTimer:Float = 0;
+	var newTitle:Bool = false;
+	var titleTimer:Float = 0;
 
 	override function update(elapsed:Float)
 	{
