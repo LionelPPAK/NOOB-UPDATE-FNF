@@ -395,18 +395,18 @@ class TitleState extends MusicBeatState
 			money.screenCenter(X);
 			money.y += (i * 60) + 200 + offset;
 			if(credGroup != null && textGroup != null) {
-			credGroup.add(money);
-			textGroup.add(money);
+				credGroup.add(money);
+				textGroup.add(money);
+			}
 		}
 	}
 
 	function addMoreText(text:String, ?offset:Float = 0)
 	{
-		if(textGroup != null) {
+		if(textGroup != null && credGroup != null) {
 			var coolText:Alphabet = new Alphabet(0, 0, text, true);
 			coolText.screenCenter(X);
 			coolText.y += (textGroup.length * 60) + 200 + offset;
-			if(credGroup != null && textGroup != null) {
 			credGroup.add(coolText);
 			textGroup.add(coolText);
 		}
