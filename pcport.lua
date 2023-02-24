@@ -351,7 +351,7 @@ function onCreatePost()
 
 	
       makeLuaSprite('black2', 'exe/StartScreen/black', 0, 0)
-	makeLuaSprite('Circle', 'exe/StartScreen/Circle-fight-or-flight', 800, 90)
+	makeLuaSprite('Circle', 'exe/StartScreen/Circle-fight-or-flight', -800, 90)
 	makeLuaSprite('Text', 'exe/StartScreen/Text-fight-or-flight', -800, 90)
 	setObjectOrder('black2', 5)
 	setObjectOrder('Circle', 6)
@@ -386,8 +386,8 @@ function onCreatePost()
 
 		function onCountdownTick(counter)
 	  	if counter == 1 then
-			doTweenX('cercle', 'Circle', 190, 0.3, 'linear')
-			doTweenX('text', 'Text', 180, 0.3, 'linear')
+			doTweenX('circle', 'Circle', 50, 0.3, 'linear')
+			doTweenX('text', 'Text', 40, 0.3, 'linear')
 		end
 		function onSongStart()
 			doTweenAlpha('black2', 'black2', 0, 1.5, 'linear');
@@ -1262,13 +1262,13 @@ function onUpdate(elapsed)
 			setPropertyFromGroup('playerStrums', 3, 'x', defaultOpponentStrumX3+80)
 
 
-			setPropertyFromGroup('opponentStrums', 0, 'x', defaultPlayerStrumX0 - 60)
+			setPropertyFromGroup('opponentStrums', 0, 'x', defaultPlayerStrumX0 - 40)
 
-			setPropertyFromGroup('opponentStrums', 1, 'x', defaultPlayerStrumX1 - 60)
+			setPropertyFromGroup('opponentStrums', 1, 'x', defaultPlayerStrumX1 - 40)
 
-			setPropertyFromGroup('opponentStrums', 2, 'x', defaultPlayerStrumX2 - 60)
+			setPropertyFromGroup('opponentStrums', 2, 'x', defaultPlayerStrumX2 - 40)
 
-			setPropertyFromGroup('opponentStrums', 3, 'x', defaultPlayerStrumX3 - 60)
+			setPropertyFromGroup('opponentStrums', 3, 'x', defaultPlayerStrumX3 - 40)
 			
 			--y
 			setPropertyFromGroup('playerStrums', 0, 'y', defaultOpponentStrumY0-30)
